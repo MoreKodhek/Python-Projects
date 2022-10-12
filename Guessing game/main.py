@@ -28,4 +28,4 @@ def computer_guess(x):
             low = guess + 1
     print(f"Yaaayyy the computer guessed your number {guess} correctly")   
 
-computer_guess(10)
+computer_guess(1000)
