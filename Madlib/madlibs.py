@@ -1,8 +1,3 @@
-# youtuber = "More Argwings"
-# print("Subscribe to " + youtuber)
-# print("Subscribe to " +youtuber)
-# print(f"Subscribe to {youtuber} ")
-
 adj = input("Adjective: ")
 verb = input("Verb: ")
 verb2 = input("Verb: ")
