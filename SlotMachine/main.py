@@ -36,13 +36,14 @@ def get_number_of_lines():
 
 def get_bet():  # checking if the bet is between the minimum and maximum bet amount
     while True:
-        amount = input('What would you like to bet one each line? KES ')
+        amount = input('How much would you like to bet one each line? KES ')
         if amount.isdigit():
             amount = int(amount)
             if MIN_BET <= amount <= MAX_BET:
                 break
             else:
-                print(f'Amount must be between ${MIN_BET} - ${MAX_BET}. ')
+                print(
+                    f'Amount must be between KES {MIN_BET} - KES {MAX_BET}. ')
         else:
             print('Please enter a number')
 
@@ -52,7 +53,10 @@ def get_bet():  # checking if the bet is between the minimum and maximum bet amo
 def main():
     balance = deposit()
     lines = get_number_of_lines()
-    bet = get_number_of_lines()
+    bet = get_bet()
+    total_bet = bet * lines
+    print(
+        f'You are betting KES {bet} on {lines} lines. Total bet is equal to: KES {total_bet}')
     print(balance, lines)
 
 
