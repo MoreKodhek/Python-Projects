@@ -29,19 +29,19 @@ def get_slot_machine_spin(rows, cols, symbols):  # the actual "slot machine"
         for _ in range(rows):
             value = random.choice(current_symbols)
             current_symbols.remove(value)
-            column.append(value)
-        columns.append(column)
+            columns.append(value)
+        columns.append(columns)
 
     return columns
 
 
-def print_slot_machine(colums):  # printing from horizontal to vertical
-    for row in range(len(colums[0])):
+def print_slot_machine(columns):  # printing from horizontal to vertical
+    for row in range(len(columns[0])):
         for i, column in enumerate(columns):
             if i != len(columns) - 1:
-                print(column[row], "|")
+                print(column[row], end=" | ")
             else:
-                print(column[row])
+                print(column[row], end="")
 
 
 def deposit():
@@ -108,6 +108,9 @@ def main():  # call all functions
     print(
         f'You are betting KES {bet} on {lines} lines. Total bet is equal to: KES {total_bet}')
     print(balance, lines)
+
+    slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
+    print_slot_machine(slots)
 
 
 main()
