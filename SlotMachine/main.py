@@ -42,6 +42,7 @@ def print_slot_machine(columns):  # printing from horizontal to vertical
                 print(column[row], end=" | ")
             else:
                 print(column[row], end="")
+        print()
 
 
 def deposit():
