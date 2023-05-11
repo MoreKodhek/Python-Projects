@@ -15,6 +15,26 @@ symbol_count = {
     "D": 8
 }
 
+symbol_value = {
+    "A": 5,
+    "B": 4,
+    "C": 3,
+    "D": 2
+}
+
+
+def check_winnings(columns, lines, bet, values):
+    winnings = 0
+    for line in range(lines):
+        symbol = columns[0][line]
+        for column in columns:
+            symbol_to_check = column[line]
+            if symbol != symbol_to_check:
+                break
+            else:
+                winnings += values[symbol] * bet
+        return winnings
+
 
 def get_slot_machine_spin(rows, cols, symbols):  # the actual "slot machine"
     all_symbols = []
@@ -35,13 +55,14 @@ def get_slot_machine_spin(rows, cols, symbols):  # the actual "slot machine"
     return columns
 
 
-def print_slot_machine(columns):  # printing from horizontal to vertical
+def print_slot_machine(columns):  # printing the actual slot machine
     for row in range(len(columns[0])):
         for i, column in enumerate(columns):
             if i != len(columns) - 1:
                 print(column[row], end=" | ")
             else:
                 print(column[row], end="")
+
         print()
 
 
@@ -112,6 +133,8 @@ def main():  # call all functions
 
     slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
     print_slot_machine(slots)
+    winnings = check_winnings(slots, lines, bet, symbol_value)
+    print(f"You won KES {winnings}.")
 
 
 main()
