@@ -1,5 +1,6 @@
 import random
 
+
 def guess(x):
     random_number = random.randint(1, x)
     guess = 0
@@ -12,6 +13,7 @@ def guess(x):
 
     print(f"You guessed {random_number} correctly!")
 
+
 def computer_guess(x):
     low = 1
     high = x
@@ -19,13 +21,15 @@ def computer_guess(x):
     while feedback != 'c':
         if low != high:
             guess = random.randint(low, high)
-        else :
+        else:
             guess = low
-        feedback = input(f'Is {guess} too high (H), too low (L), or correct (C): ').lower()
+        feedback = input(
+            f'Is {guess} too high (H), too low (L), or correct (C): ').lower()
         if feedback == 'h':
             high = guess - 1
         if feedback == 'l':
             low = guess + 1
-    print(f"Yaaayyy the computer guessed your number {guess} correctly")   
+    print(f"Yaaayyy the computer guessed your number {guess} correctly")
+
 
 computer_guess(1000)
